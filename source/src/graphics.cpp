@@ -1,6 +1,8 @@
 #include "graphics.h"
 
-#include <SDL2/SDL.h>
+extern "C"{
+    #include "SDL2/SDL.h"
+}
 
 /**
  * Graphics Class

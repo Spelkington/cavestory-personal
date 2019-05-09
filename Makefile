@@ -1,10 +1,15 @@
-PROJ_INCS=-I source/headers -L source/objs -lSDL2
+OBJS = graphics.o main.o
+CC = g++
+COMPILER_FLAGS = -w -g
+LINKER_FLAGS = -Isource/headers -lSDL2
+OUT_NAME = cave_story
 
-PROJ_SRC=source/src
-PROJ_OBJS=objs
+#This is the target that compiles our executable
+all : $(OBJS)
+	$(CC) objs/*.o $(COMPILER_FLAGS) $(LINKER_FLAGS) -o $(OUT_NAME)
 
-all: graphics.o
-	g++ -g $(PROJ_INCS)    $(PROJ_SRC)/main.cpp -o cave_story
+main.o:
+	$(CC) -c $(LINKER_FLAGS) source/src/main.cpp -o objs/main.o
 
 graphics.o:
-	g++ -g $(PROJ_INCS) -c $(PROJ_SRC)/graphics.cpp -o $(PROJ_OBJS)/graphics.o
+	$(CC) -c $(LINKER_FLAGS) -lSDL2 source/src/graphics.cpp -o objs/graphics.o
