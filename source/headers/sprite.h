@@ -21,7 +21,7 @@ class Sprite {
          */
         void draw(Graphics &graphics, int x, int y);
 
-    private:
+    protected:
         SDL_Rect _sourceRect;
         SDL_Texture* _spriteSheet;
 
